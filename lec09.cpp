@@ -42,7 +42,7 @@ int main(){
     //     cout<< third[i]<< " ";
     // }
     printArray(third,15);
-
+    
     //size
     int thirdSize= sizeof(third)/sizeof(int);
     cout<<"size of third is "<< thirdSize<<endl;
@@ -51,7 +51,12 @@ int main(){
     int fourth[10]={0};
     
     int m=10;
-
+    // cout<<endl<<"printing the array"<<endl;
+    // //print
+    // for (int i = 0; i < m; i++)
+    // {
+    //     cout<< fourth[i]<< " ";
+    // }
     printArray(fourth,10);
 
     //initialise 
@@ -80,7 +85,7 @@ int main(){
     char ch[5]={'a','b','c','d','e'};
     cout<<ch[3]<<endl;
     cout<<"printing the array"<<endl;
-    //print 
+    //print
     for (int i = 0; i < 5; i++)
     {
          cout<< ch[i]<< " ";
