@@ -1,45 +1,25 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
-int reversekeequal(){
-    int ans=0;
-    int x;
-    cin>>x; //key
-    while(x>0){
-        int digit= x%10;
-        ans= ans*10 + digit;
-        x=x/10;
-    }
-    return ans;
-}
 
-int boringapart(){
-    int count;
-    for(int i=0;i<10000;i++){
-        if(i>10 && ==){
-            count=count+1;
-        }
-        if(i>100 && ){
-            count=count+2;
-        }
-        if(i>1000 && ){
-            count=count+3;
-        }
-        if(i>10000 && ){
-            count=count+4;
-        }
-        return count;
-    }
-}
 int main(){
     int t;
     cin>>t;
-    
+
+    vector<string>  arr={"1","11","111","1111","2","22","222","2222","3","33","333","3333","4","44","444","4444","5","55","555","5555","6","66","666","6666","7","77","777","7777","8","88","888","8888","9","99","999","9999"};
+     
     while(t--){
-        for(int i=0;i<10000;i++){
-            
+        string key;
+        cin>>key;
+        int len=0;
+        //index-ind
+        for(auto ind : arr){
+            len+= ind.length();
+            if(key==ind){
+                break;
+            }
         }
-        cout<<boringapart()<<endl;
+        cout<<len<<endl;
     }
     return 0;
 }
