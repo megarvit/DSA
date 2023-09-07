@@ -1,4 +1,5 @@
-int isPossible(vector<int>& arr, int n, int m,int mid){
+
+bool isPossible(vector<int>& arr, int n, int m,int mid){
 
     int studentCount = 1;
     int pageSum = 0;
@@ -12,10 +13,13 @@ int isPossible(vector<int>& arr, int n, int m,int mid){
             if( studentCount > m || arr[i] > mid){
                 return false;
             }
-            // pageSum = 0;
-            // pageSum += arr[i];
+            // pageSum=0;
+            // pageSum+= arr[i];
             pageSum = arr[i];
         }
+    }
+    if(m>n){
+        return false;
     }
     return true;
 }
@@ -35,14 +39,14 @@ int findPages(vector<int>& arr, int n, int m) {
     int mid= s+ (e-s)/2;
 
     while(s<=e){
-        if(ispossible(arr,n,m,mid)){
+        if(isPossible(arr,n,m,mid)){
             ans= mid;
             e= mid-1;
         }
         else{
             s=mid+1;
         }
-        int mid= s+ (e-s)/2;
+        mid= s+ (e-s)/2;
     }
     return ans;
 }
