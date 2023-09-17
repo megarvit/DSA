@@ -28,6 +28,7 @@ public:
                     chars[ansIndex++] = ch;
                 }
             }
+            //moving to new character
             i=j;
         }
         return ansIndex;
