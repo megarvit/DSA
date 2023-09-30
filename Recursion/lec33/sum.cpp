@@ -7,11 +7,14 @@ int sum(int *arr, int size){
     if(size == 0){
         return 0;
     }
+    if(size == 1){
+        return arr[0];
+    }
 
     else{
-        int ans = arr[0];
-        ans = ans + sum(arr+1,size-1);
-        return ans;
+        int ansSum = arr[0]; 
+        ansSum= arr[0] + sum(arr+1,size-1);
+        return ansSum;
     }
 }
 
