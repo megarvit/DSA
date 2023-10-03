@@ -46,7 +46,7 @@ void merge(int *arr,int s,int e){
         arr[mainArrayIndex++] = second[index2++];
     }
 
-    delete []first;
+    delete []first; 
     delete []second;
 
 }
