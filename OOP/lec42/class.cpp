@@ -1,4 +1,5 @@
 #include<iostream>
+#include <cstring>
 // #include "hero.cpp"
 using namespace std;
 
@@ -12,6 +13,7 @@ class Hero {
     public:
     char *name;
     char level;
+    static int timeToComplete; //static keyword used
 
     Hero(){
         cout<<"simple constructor called"<<endl;
@@ -31,14 +33,22 @@ class Hero {
 
     //copy constructor
     Hero(Hero& temp){  //pass by refrence
+
+        char *ch = new char[strlen(temp.name)+1];
+        strcpy(ch,temp.name);
+        this->name = ch;
+
         cout<<"copy constructor called "<<endl;
         this->health = temp.health;
         this->level = temp.level;
     }
 
     void print(){
-        cout<<"health "<<this->health<<endl;
+        cout<<endl;
+        cout<<"name "<<this->name<<" , ";
+        cout<<"health "<<this->health<<" , ";
         cout<<"level "<<this->level<<endl;
+        cout<<endl;
     }
 
     int gethealth(){
@@ -62,20 +72,113 @@ class Hero {
         level = ch;
     }
 
+    void setName(char name[]){
+        strcpy(this->name,name);
+    }
+
+    static int random(){
+        return timeToComplete;
+    }
+
+    //destructor
+    ~Hero(){
+        cout<<"destructor bhai called" <<endl;
+    }
+
 };
+
+int Hero::timeToComplete = 5;  //initialisation
+
 
 int main(){
 
+    // cout<<Hero::timeToComplete<<endl;
+    cout<<Hero::random()<<endl;
 
-    Hero suresh(70,'C');
-    suresh.print();
-    // suresh.sethealth(70);
-    // suresh.setlevel('A');
+    // Hero a;
+
+    // cout<< a.timeToComplete<<endl;
+
+    // Hero b;
+    // b.timeToComplete = 10;
+    // cout<< a.timeToComplete<<endl;
+    // cout<< b.timeToComplete<<endl;
 
 
-    //copy constructor
-    Hero ritesh(suresh);
-    ritesh.print();
+
+
+
+
+
+
+
+
+
+
+
+
+    // //static
+    // Hero a;
+
+    // //dynamic
+    // Hero *b = new Hero();
+    // //manually called
+    // delete b;
+
+    return 0;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Hero hero1;
+    // hero1.sethealth(12);
+    // hero1.setlevel('D');
+    // char name[7] = "Garvit";
+    // hero1.setName(name);
+
+    // //hero1.print();
+
+    // //use default copy constructor
+
+    // Hero hero2(hero1);
+    // //hero2.print();
+
+    // hero1.name[0] = 'S';
+    // hero1.print();
+
+    // hero2.print();
+
+    // hero1 = hero2; //copy assignment operator
+
+    // hero1.print();
+
+    // hero2.print(); 
+
+
+
+
+    // Hero suresh(70,'C');
+    // suresh.print();
+    // // suresh.sethealth(70);
+    // // suresh.setlevel('A');
+
+
+    // //copy constructor
+    // Hero ritesh(suresh);
+    // ritesh.print();
 
     // ritesh.gethealth = suresh.health;
     // ritesh.level = suresh.level;
@@ -158,5 +261,5 @@ int main(){
     // cout<<"level is: "<<ramesh.level<<endl;
     */
 
-    return 0;
-}
+//     return 0;
+// }
