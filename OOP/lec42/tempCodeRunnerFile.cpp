@@ -1,0 +1,1 @@
+cout<<"address of ramesh "<<&ramesh<<endl;
