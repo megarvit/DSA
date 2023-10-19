@@ -155,4 +155,4 @@ int main(){
     cout<<"tail "<<tail->data<<endl;
 
     return 0;
-}
+} 
