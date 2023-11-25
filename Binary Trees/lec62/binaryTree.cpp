@@ -40,6 +40,30 @@ node* buildTree(node* root){
 void levelOrderTraversal(node* root){
     queue<node*> q;
     q.push(root);
+    q.push(NULL);
+
+    while(!q.empty()){
+        node* temp = q.front();
+        
+        q.pop();
+
+        if(temp == NULL){ //purana level complete traverse ho chuka h
+            cout<<endl;
+            if(!q.empty()){ //queue still has some child node
+                q.push(NULL);
+            }
+        }
+        else{
+            cout<< temp -> data <<" ";
+            if(temp->left){ //if temp ka left is non null
+                q.push(temp->left);
+            }
+
+            if(temp->right){ //if temp ka left is non null
+                q.push(temp->right);
+            }
+        }
+    }
 
     
 }
@@ -50,6 +74,12 @@ int main(){
 
     //  creating a tree
     root = buildTree(root);
+
+    //1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
+
+    //level order
+    cout<<"Printing the level order traversal output"<<endl;
+    levelOrderTraversal(root);
 
 
 
