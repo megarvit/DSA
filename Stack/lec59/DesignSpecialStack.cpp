@@ -21,26 +21,26 @@ class SpecialStack {
                 mini = data;
             }
             else{
-                mini = data;
+                s.push(data);
             }
         }
     }
 
     void pop() {
         if(s.empty()){
-            return -1;
+            return;
         }
         int curr = s.top();
         s.pop();
 
         if(curr > mini){
-            return curr;
+            return;
         }
         else{
             int prevMin = mini;
             int val = 2*mini - curr;
             mini = val;
-            return prevMin;
+            return;
         }
     }
 
