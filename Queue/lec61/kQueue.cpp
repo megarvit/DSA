@@ -70,14 +70,41 @@ class kQueue{
             arr[index] = data;
         }
 
-        void dequeue(int qn){
-            
+        int dequeue(int qn){
+            //underflow
+            if(front[qn-1] == -1)
+            {
+                cout<<"Queue Underflow" <<endl;
+                return -1;
+            }
+
+            //find index to pop
+            int index = front[qn-1];
+
+            //front ko aage badhao
+            front[qn-1] = next[index];
+
+            //freeslot ko manage kro
+            next[index] = freeSpot;
+            freeSpot = index;
+
+            return arr[index];
         }
 };
 
 int main(){
 
+    kQueue q(10,3);
+    q.enqueue(10,1);
+    q.enqueue(15,1);
+    q.enqueue(20,2);
+    q.enqueue(25,1);
 
+    cout<< q.dequeue(1) <<endl;
+    cout<< q.dequeue(2) <<endl;
+    cout<< q.dequeue(1) <<endl;
+    cout<< q.dequeue(1) <<endl;
+    // cout<< q.dequeue(1) <<endl;
 
     return 0;
 }
